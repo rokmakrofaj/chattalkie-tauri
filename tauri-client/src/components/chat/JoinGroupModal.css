@@ -1,0 +1,128 @@
+.join-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1001;
+    /* Above everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.join-modal-content {
+    background-color: var(--bg-primary, #ffffff);
+    color: var(--text-primary, #111827);
+    width: 90%;
+    max-width: 380px;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    animation: scaleUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.join-modal-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.join-modal-header h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.join-modal-body {
+    padding: 24px 20px;
+}
+
+.join-instruction {
+    margin: 0 0 16px 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary, #6b7280);
+    line-height: 1.5;
+}
+
+.join-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color, #d1d5db);
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.join-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.join-error {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin: 10px 0 0 0;
+}
+
+.join-modal-footer {
+    padding: 16px 20px;
+    background-color: var(--bg-secondary, #f9fafb);
+    border-top: 1px solid var(--border-color, #e5e7eb);
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.cancel-btn {
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    color: var(--text-secondary, #6b7280);
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.cancel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.join-btn {
+    padding: 8px 20px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.join-btn:hover {
+    background-color: #2563eb;
+}
+
+.join-btn:disabled {
+    background-color: #93c5fd;
+    cursor: not-allowed;
+}

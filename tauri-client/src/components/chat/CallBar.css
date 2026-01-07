@@ -1,0 +1,88 @@
+/* Call Bar - WhatsApp-style minimized call indicator */
+
+.call-bar {
+    /* Relative position - inside chat window above messages */
+    position: relative;
+    margin: 8px;
+    border-radius: 12px;
+    height: 48px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.call-bar:hover {
+    background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+.call-bar-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.call-bar-icon {
+    color: white;
+    display: flex;
+    align-items: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.call-bar-text {
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.call-bar-hint {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+}
+
+.call-bar-hangup {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.call-bar-hangup:hover {
+    background-color: #dc2626;
+    transform: scale(1.1);
+}

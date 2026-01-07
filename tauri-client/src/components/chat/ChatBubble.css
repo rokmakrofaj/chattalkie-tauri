@@ -1,0 +1,113 @@
+.message-row {
+    display: flex;
+    width: 100%;
+    margin-bottom: var(--space-md);
+    align-items: flex-end;
+}
+
+.message-row.mine {
+    justify-content: flex-end;
+}
+
+.message-row.theirs {
+    justify-content: flex-start;
+}
+
+/* The Bubble Itself */
+.message-bubble {
+    max-width: 70%;
+    padding: 0.625rem 1rem;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+}
+
+.message-bubble.mine {
+    background: linear-gradient(to top right, #3b82f6, #6366f1);
+    /* Blue 500 to Indigo 500 */
+    color: var(--text-inverse);
+    border-radius: var(--radius-xl);
+    border-bottom-right-radius: 2px;
+    /* Tail effect */
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+}
+
+.message-bubble.theirs {
+    background-color: var(--bg-panel);
+    color: var(--text-main);
+    border-radius: var(--radius-xl);
+    border-bottom-left-radius: 2px;
+    /* Tail effect */
+    border: 1px solid var(--border-light);
+}
+
+/* Content */
+.message-text {
+    font-size: 0.9375rem;
+    /* ~15px */
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+/* Metadata (Time & Status) */
+.message-meta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-top: 4px;
+    font-size: 0.625rem;
+    /* 10px */
+}
+
+.message-bubble.mine .message-meta {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.message-bubble.theirs .message-meta {
+    color: var(--text-secondary);
+}
+
+
+.status-icon {
+    width: 12px;
+    height: 12px;
+}
+
+/* Telegram-like Media Bubble */
+.message-bubble.has-media {
+    padding: 4px 4px 24px 4px;
+    /* Extra bottom padding for timestamp overlay */
+    background: transparent !important;
+    /* Let image define shape? No, keep bubble color */
+    position: relative;
+    max-width: 320px;
+    /* Limit width for images */
+}
+
+.message-bubble.has-media.mine {
+    background: linear-gradient(to top right, #3b82f6, #6366f1);
+}
+
+.message-bubble.has-media img {
+    border-radius: 12px;
+    display: block;
+    width: 100%;
+}
+
+/* Overlay Timestamp/Status for Media */
+.message-bubble.has-media .message-footer {
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2px 6px;
+    border-radius: 12px;
+    color: white !important;
+    backdrop-filter: blur(2px);
+}
+
+.message-bubble.has-media .message-footer .status-ticks svg {
+    stroke: white !important;
+    /* Force white ticks on overlay */
+}
